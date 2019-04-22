@@ -5,6 +5,8 @@
 </template>
 <script>
 import MindNode from './MindNode'
+import demo from './demo.json'
+import { hierarchy } from './hierarchy'
 
 export default {
   components: {
@@ -24,8 +26,17 @@ export default {
       }
     }
   },
-  created() {
-    document.documentElement.style.setProperty('--baseColor', this.color)
+  created () {
+    console.log(demo)
+    hierarchy(demo)
+    this.tree = demo
   }
 }
 </script>
+
+<style scoped>
+svg {
+  overflow: visible;
+}
+</style>
+

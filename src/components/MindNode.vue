@@ -50,8 +50,8 @@ export default {
       // this.node.isCollapse = !this.node.isCollapse
       this.$set(this.node, 'isCollapse', !this.node.isCollapse)
     },
-    handleNodeActive() {
-      this
+    handleNodeActive () {
+      // this
     }
   }
 }

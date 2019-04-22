@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MindMap color="red" />
+    <MindMap />
   </div>
 </template>
 
