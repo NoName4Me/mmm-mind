@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .note-pannel-wraper {
   position: fixed;
   top: 0;
@@ -38,14 +38,13 @@ export default {
   bottom: 0;
   overflow: auto;
   background-color: lightgoldenrodyellow;
+  .content {
+    &:focus {
+      outline: none;
+    }
+  }
 }
-.note-pannel-wraper .content {
 
-}
-
-.note-pannel-wraper .content {
-  
-}
 </style>
 
 
