@@ -10,7 +10,7 @@ import MindMap from './components/MindMap.vue'
 export default {
   name: 'app',
   components: {
-    MindMap
+    MindMap,
   }
 }
 </script>

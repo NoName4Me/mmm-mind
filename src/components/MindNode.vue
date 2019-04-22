@@ -1,5 +1,5 @@
 <template>
-  <g class="node" @click="handleNodeActive"
+  <g class="node" @click.stop="handleNodeActive"
      @dblclick.stop="handleToggle">
     <path :d="path"></path>
     <path v-if="pNode"
@@ -47,11 +47,10 @@ export default {
   },
   methods: {
     handleToggle () {
-      // this.node.isCollapse = !this.node.isCollapse
       this.$set(this.node, 'isCollapse', !this.node.isCollapse)
     },
     handleNodeActive () {
-      // this
+      this.$bus.$emit('node-selected', this.node)
     }
   }
 }

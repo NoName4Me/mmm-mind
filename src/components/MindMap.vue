@@ -1,35 +1,56 @@
 <template>
-  <svg width="100%" height="100%">
-    <MindNode v-if="tree" :node="tree"></MindNode>
-  </svg>
+  <div>
+    <svg width="100%"
+         height="100%">
+      <MindNode v-if="tree"
+                :node="tree"></MindNode>
+    </svg>
+    <NotePanel :node="selectedNode" />
+  </div>
 </template>
 <script>
-import MindNode from './MindNode'
-import demo from './demo.json'
-import { hierarchy } from './hierarchy'
+import MindNode from './MindNode.vue'
+import NotePanel from './NotePanel.vue'
+import { hierarchy } from '../utils/hierarchy'
 
 export default {
   components: {
-    MindNode
+    MindNode,
+    NotePanel
   },
   data () {
     return {
-      tree: {
-        name: 'Top Level',
-        x: 10,
-        y: 50,
-        w: 100,
-        children: [
-          { name: 'Top 2 Level-1', x: 180, y: 20, w: 200 },
-          { name: 'Top 2 Level-2', x: 180, y: 70, w: 180 }
-        ]
-      }
+      tree: {},
+      selectedNode: {}
+    }
+  },
+  methods:{
+    handleSelectNode(node) {
+      this.selectedNode = node
     }
   },
   created () {
-    console.log(demo)
-    hierarchy(demo)
-    this.tree = demo
+    this.$bus.$on('node-selected', this.handleSelectNode)
+    this.tree = hierarchy({
+      "name": "Top level",
+      "note": "```js\n  const name = 'jonge'\n```",
+      "children": [
+        { "name": "Top 2 level -1" },
+        {
+          "name": "Top 2 level -2",
+          "children": [
+            {
+              "name": "Top 3 level -1",
+              "note": "## note\n> interesting"
+            },
+            {
+              "name": "Top 3 level -2"
+            }
+          ]
+        },
+        { "name": "Top 2 level -3" }
+      ]
+    })
   }
 }
 </script>
@@ -39,4 +60,3 @@ svg {
   overflow: visible;
 }
 </style>
-

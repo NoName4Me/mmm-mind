@@ -13,3 +13,10 @@ export class Node {
     console.log(this.id)
   }
 }
+
+export class RawDataNode {
+  constructor (name = '', note = '') {
+    this.name = name
+    this.note = note
+  }
+}
