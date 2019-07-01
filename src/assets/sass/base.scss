@@ -1,0 +1,29 @@
+$topZ: 1000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  text-decoration: none;
+  &:hover {
+    outline: none;
+    border: none;
+  }
+}
+:root {
+  --baseColor: #25ccf7;
+  --bgColor: #ffffff;
+  --textColor: #182c61;
+  --hintColor: #cad3c8;
+  --errorColor: #fc427b;
+  --nightBg: #182c61;
+  --nightText: #ffffff;
+  --nightNote: #116859;
+  --lightBg: #ffffff;
+  --lightText: #182c61;
+  --lightNote: #fff8cd;
+  --warnColor: #f97f51;
+  --activeTextBg: #25ccf71a;
+  --NoteBg: #fff8cd;
+}

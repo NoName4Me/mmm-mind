@@ -3,7 +3,7 @@ export function hierarchy (
   {
     nodeHeight = 30,
     nodeGap = 100,
-    fontWidth = 12,
+    fontWidth = { normal: 8, capital: 10, chinese: 12 },
     paddingLeft = 20,
     paddingRight = 10
   } = {}
@@ -20,6 +20,8 @@ export function hierarchy (
         child.x = node.x + node.w + nodeGap
         generateX(child) // generate children width
       }
+    } else {
+      node.children = []
     }
   }
 
@@ -46,6 +48,16 @@ function _hasChildren (node) {
   return node && node.children && node.children.length
 }
 
-function _getNameWidth (name, fontWidth = 12) {
-  return name.length * fontWidth
+function _getNameWidth (name, fontWidth) {
+  let width = 0
+  for (let i = 0; i < name.length; i++) {
+    if (/[a-z\d`~!@#$%^&*()-_=+\|\\}\][{'":;/?.>,< ]/.test(name[i])) {
+      width += fontWidth.normal
+    } else if (/[A-Z]/.test(name[i])) {
+      width += fontWidth.capital
+    } else {
+      width += fontWidth.chinese
+    }
+  }
+  return width || 100
 }
