@@ -1,0 +1,20 @@
+env:
+  global:
+    - GITHUB_REPO: github.com/NoName4Me/noname4me.github.io.git
+language:
+  node_js
+node_js:
+  - "8"
+install:
+  - npm install -g yarn
+script:
+  - yarn
+  - yarn build
+after_script:
+  - git clone "https://${GITHUB_TOKEN}@${GITHUB_REPO}"
+  - cd noname4me.github.io
+  - mkdir -p solutions/mind-map
+  - cp -P ../dist/ solutions/mind-map/
+  - git add .
+  - git commit -m "update Mind Map"
+  - git push
