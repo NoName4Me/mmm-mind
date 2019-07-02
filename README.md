@@ -1,6 +1,6 @@
 # mmm-mind
 
-> A markdown <--> mind map tool.
+> A markdown <--> mind map tool. Checkout [onlne demo](https://noname4me.github.io/solutions/mind-map/index.html).
 
 ⚠️：only support indent size of **2 spaces**.
 
