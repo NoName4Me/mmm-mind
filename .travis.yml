@@ -14,7 +14,7 @@ after_script:
   - git clone "https://${GITHUB_TOKEN}@${GITHUB_REPO}"
   - cd noname4me.github.io
   - mkdir -p solutions/mind-map
-  - cp -R ../dist/ solutions/mind-map/
+  - cp -R ../dist/* solutions/mind-map/
   - git add .
   - git commit -m "update Mind Map"
   - git push
